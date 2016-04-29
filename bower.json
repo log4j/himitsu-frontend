@@ -1,0 +1,14 @@
+{
+  "name": "himitsu-frontend",
+  "version": "1.0.0",
+  "description": "Website for share himitsu",
+  "homepage": "",
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-bootstrap": "*",
+    "font-awesome": "~4.5.0",
+    "angular-ui-router":"*",
+    "jquery":"^2.2.3",
+    "bootstrap":"*"
+  }
+}
