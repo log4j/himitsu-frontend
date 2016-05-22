@@ -10,9 +10,12 @@
                 url:'/login',
                 controller:'AccountController',
                 templateUrl:'/views/login.html'
+                
             })
-    })
-    
-    
-    
+            .state('secret',{
+                url:'/secret',
+                controller:'secretController',
+                templateUrl:'/views/secret.html'
+            });
+    });
 })();
