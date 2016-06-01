@@ -1,23 +1,35 @@
 (function(){
+    'use strict';
     
-    angular.module('himitsuApp')
-    .controller(
+    angular
+        .module('himitsuApp')
+        .controller(
         'AccountController',function($state, $scope, userService){            
-            
+                
             $scope.loginData = {
-                email:'',
-                password:''
+                email:'yangmang@gwu.edu',
+                password:'123'
             };
             
             $scope.loginSubmit = function(){
-                console.log($scope.loginData);
-            
+                userService.postLogin($scope.loginData)
+                .then(function(res){
+                    if(res.result){
+                        //alert('OK'); 
+                        
+                        $state.go('secret');
+                    }else{
+                        alert(res.err.message);
+                    }
+                    
+                });
                 
-            }
+            };
+            
             
             $scope.size = null;
             
-            $scope.users = []
+            $scope.users = [];
             
             
             $scope.random = function(){

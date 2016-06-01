@@ -1,0 +1,269 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+
+<style>
+    body {
+        background-color: black;
+    }
+    
+    .form-signin {
+        max-width: 400px;
+        padding: 15px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .form-signin,
+    .form-signin .checkbox {
+        margin-bottom: 10px;
+    }
+    
+    .form-signin-heading {
+        margin-bottom: 30px;
+        text-align: center;
+        color: white;
+        font-family: sans-serif;
+    }
+    
+    .form-signin .form-control {
+        position: relative;
+        height: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 16px;
+        color: #fff;
+        max-width: 400px;
+        background-color: transparent;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: #3e3e3e;
+        border-left-width: 0px;
+        border-left-style: none;
+        border-right-width: 0px;
+        border-right-style: none;
+        border-top-width: 0px;
+        border-top-style: none;
+        font-family: sans-serif;
+        box-sizing: border-box;
+        cursor: auto;
+        display: inline-block;
+        height: 44px;
+        overflow-x: visible;
+        overflow-y: visible;
+    }
+    
+    .form-control:focus {
+        border-bottom-color: #fff;
+        border-left-width: 0px;
+        border-left-style: none;
+        border-right-width: 0px;
+        border-right-style: none;
+        border-top-width: 0px;
+        border-top-style: none;
+        box-shadow: none;
+    }
+    
+    .form-signin .form-control:focus {
+        z-index: 2;
+    }
+    
+    .form-signin input[type="email"] {
+        margin-bottom: 5px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    
+    .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    
+    .btn-signup {
+        width: auto;
+        opacity: 100%;
+        display: inline-block;
+        padding: 10px 50px;
+        margin: 0 10px;
+        background: transparent;
+        border: 1px solid #3e3e3e;
+        color: #fff;
+        text-transform: uppercase;
+        outline: none;
+        font-size: 11px;
+        font-weight: 500;
+        cursor: pointer;
+        line-height: 22px;
+        letter-spacing: .1em;
+        text-align: center;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+    
+    .btn-signup:hover .btn-image:hover {
+        border: 1px solid white;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .btn-login {
+        display: inline-block;
+        padding: 10px 50px;
+        margin: 0 5px;
+        background: #e4e4e4;
+        border: 1px solid;
+        color: #1c1c1c;
+        text-transform: uppercase;
+        outline: none;
+        font-size: 11px;
+        font-weight: 500;
+        cursor: pointer;
+        line-height: 22px;
+        letter-spacing: .1em;
+        text-align: center;
+        border-radius: 4px;
+        -webkit-font-smoothing: antialiased;
+        border: 0px;
+        margin-top: 20px;
+    }
+    
+    .btn-login:hover {
+        background: #D8D8D8;
+    }
+    
+    .input-wrapper {
+        background: transparent;
+        color: #a1a1a1;
+        display: block;
+        line-height: 22px;
+        margin-bottom: 15px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 25px;
+        font-size: 12px;
+        position: relative;
+    }
+    
+    .btn-image {
+        display: inline;
+        padding: 5px 8px;
+        margin: 0 3px;
+        background: white;
+        border: 1px solid;
+        color: #1c1c1c;
+        text-transform: uppercase;
+        outline: none;
+        font-size: 8px;
+        font-weight: 400;
+        cursor: pointer;
+        line-height: 10px;
+        letter-spacing: .1em;
+        text-align: center;
+        border-radius: 4px;
+        -webkit-font-smoothing: antialiased;
+        border: 0px;
+        margin-top: 5px;
+    }
+    
+    .btn-image:hover {
+        border-color: aquamarine;
+    }
+    
+    #Gender {
+        color: #a1a1a1;
+        font-size: 16px;
+        font-weight: 400;
+        font-family: sans-serif;
+        padding-left: 20px;
+        margin-right: 20px;
+    }
+    
+    .btn-signup:hover {
+        border: 1px solid white;
+        color: white;
+        text-decoration: none;
+    }
+    
+</style>
+
+<body>
+    <div class="container">
+        <form class="form-signin">
+            <h2 class="form-signin-heading">HIMITSU</h2>
+            <div class="input-wrapper">
+                <img id="avatarSetting" width="140" height="160" style="border-radius:15%" src="images/avatar-default.png">
+                <div class="input-wrapper">
+                    <label class="btn-image">
+                        Change Avatar
+                        <input type="file" style="display:none" id="personalImage" alt="avatar image" accept="image/gif, image/jpeg, image/png">
+                    </label>
+                </div>
+            </div>
+            <div class="input-wrapper">
+                <label for="inputEmail" class="sr-only">Email Address</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                <span class="'glyphicon glyphicon-asterisk'"></span>
+            </div>
+            <div class="input-wrapper">
+                <label for="inputName" class="sr-only">Name</label>
+                <input type="text" id="inputName" class="form-control" placeholder="User Name" required="" autofocus="">
+            </div>
+            <div class="input-wrapper">
+                <label for="inputLastName" class="sr-only">Last Name</label>
+                <input type="text" id="inputLastName" class="form-control" placeholder="Last Name" required="" autofocus="">
+            </div>
+            <div class="input-wrapper">
+                <label for="inputFirstName" class="sr-only">First Name</label>
+                <input type="text" id="inputFirstName" class="form-control" placeholder="First Name" required="" autofocus="">
+            </div>
+            <div class="input-wrapper">
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword1" class="form-control" placeholder="Password">
+            </div>
+            <div class="input-wrapper">
+                <label for="inputPassword" class="sr-only">PasswordAgain</label>
+                <input type="password" id="inputPassword2" class="form-control" placeholder="Re-enter password">
+            </div>
+            <div class="input-wrapper">
+                <select id="Gender" class="form-control" name="Gender" data-bind="value: gender, hasFocus: gender.focused, css: { 'has-error': showError(gender) }">
+                    <option selected="selected" value=""> &nbsp;Gender</option>
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                    <option value="u">Not specified</option>
+                </select>
+            </div>
+
+            <div class="input-wrapper">
+                <a href="signup.html" class="btn-signup">SIGN UP</a>
+            </div>
+
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#personalImage").change(function (e) {
+                var file = e.originalEvent.srcElement.files[0];
+                var img = document.createElement("img");
+                var reader = new FileReader();
+                //                reader.onloadend = function () {
+                //                    img.src = reader.result;
+                //                }
+                reader.onload = function (e) {
+                    $("#avatarSetting").show().attr('src', e.target.result);
+                }
+                reader.readAsDataURL(file);
+                $("#personalImage").after(img);
+            });
+
+
+
+        })
+    </script>
+</body>
