@@ -15,9 +15,16 @@
                 userService.postLogin($scope.loginData)
                 .then(function(res){
                     if(res.result){
-                        //alert('OK'); 
+                        //alert('OK');
+
+                        userService.loadUser()
+                            .then(function(userRes){
+                                if(userRes.result){
+                                    $state.go('secret');
+                                }
+                            });
                         
-                        $state.go('secret');
+
                     }else{
                         alert(res.err.message);
                     }
@@ -25,6 +32,9 @@
                 });
                 
             };
+                $scope.signup = function () {
+                    $state.go('signup');
+                };
             
             
             $scope.size = null;

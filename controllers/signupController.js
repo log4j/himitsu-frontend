@@ -6,13 +6,26 @@
             
             $scope.signupData = {
                 email:'',
-                password:'',
+                password1:'',
+                password2:'',
+                firstname:'',
+                lastname:'',
+                name:''
             };
             
             $scope.signupSubmit = function(){
-                console.log($scope.signupData);
-            
-                
+                signupService.postSignup($scope.signupData)
+                    .then(function(res){
+                        if(res.result){
+                            //alert('OK');
+
+                            $state.go('login');
+                        }else{
+                            alert(res.err.message);
+                        }
+
+                    });
+
             };
             
             $scope.size = null;

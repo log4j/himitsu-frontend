@@ -24,6 +24,20 @@
                 
             }
 
+            this.postSecret = function (data) {
+                
+                return $http.post('http://localhost:4000/secret',data)
+                .then(function (res) {
+                    
+                    console.log(res);
+
+                    if(res.data)
+                        return res.data;
+                    else
+                        return {result: false};
+                });
+            };
+
             return this;
         });
 

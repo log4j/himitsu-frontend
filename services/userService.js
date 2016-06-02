@@ -2,12 +2,16 @@
 
     angular
         .module('himitsuApp')
-        .factory('userService', function ($http) {
+        .factory('userService', function ($http, $localStorage) {
 
 
             var userService = this;
 
-            this.postLogin = function (data) {
+            userService.userId = null;
+
+
+
+            userService.postLogin = function (data) {
                 console.log(data);
                 
                 return $http.post('http://localhost:4000/login', data)
@@ -15,7 +19,14 @@
                     console.log(res.data.id);
                     
                     if(res.data){
-                        
+
+
+
+
+                        userService.userId = res.data.id;
+
+                        $localStorage.userId = res.data.id;
+
                         return res.data;
                         
                     }else{
@@ -25,8 +36,31 @@
                 
             };
 
+            userService.loadUser = function(){
+                return $http.get('http://localhost:4000/user/'+$localStorage.userId)
+                    .then(function(res){
+                        if(res.data){
+                            if(res.data.result){
+                                $localStorage.user = res.data.data;
+                            }
 
-            this.searchUserByFirstName = function (keyword) {
+                            return res.data;
+                        }else{
+                            return {result:false};
+                        }
+                    })
+            };
+
+
+            userService.getUserId = function(){
+                return $localStorage.userId;
+            };
+            
+            userService.getUser = function(){
+                return $localStorage.user;
+            };
+
+            userService.searchUserByFirstName = function (keyword) {
                 if (!keyword)
                     keyword = "";
                 return $http.get('http://localhost:4000/user?firstName=' + keyword)

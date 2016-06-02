@@ -1,7 +1,7 @@
 (function () {
 
     angular.module('himitsuApp', [
-        'ui.bootstrap', 'ui.router'
+        'ui.bootstrap', 'ui.router', 'ngStorage'
     ])
         .config(function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('/login');
@@ -12,8 +12,8 @@
                     templateUrl: '/views/login.html'
 
                 })
-                .state('signup', {
-                    url: '/signup',
+                .state('createUser', {
+                    url: '/user',
                     controller: 'signupController',
                     templateUrl: '/views/signup.html'
                 })
@@ -22,5 +22,9 @@
                     controller: 'secretController',
                     templateUrl: '/views/secret.html'
                 });
-        });
+        })
+        .config(['$httpProvider', function($httpProvider) {
+            $httpProvider.defaults.withCredentials = true;
+        }])
+    ;
 })();

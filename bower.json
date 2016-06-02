@@ -7,8 +7,9 @@
     "angular": "~1.4.8",
     "angular-bootstrap": "*",
     "font-awesome": "~4.5.0",
-    "angular-ui-router":"*",
-    "jquery":"^2.2.3",
-    "bootstrap":"*"
+    "angular-ui-router": "*",
+    "jquery": "^2.2.3",
+    "bootstrap": "*",
+    "ngstorage": "^0.3.10"
   }
 }
