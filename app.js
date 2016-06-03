@@ -1,5 +1,7 @@
 (function () {
 
+
+    //    var host = 'http://localhost:4000';
     angular.module('himitsuApp', [
         'ui.bootstrap', 'ui.router', 'ngStorage'
     ])
@@ -22,9 +24,9 @@
                     controller: 'secretController',
                     templateUrl: '/views/secret.html'
                 });
+        
         })
-        .config(['$httpProvider', function($httpProvider) {
+        .config(['$httpProvider', function ($httpProvider) {
             $httpProvider.defaults.withCredentials = true;
-        }])
-    ;
+        }]);
 })();

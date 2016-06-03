@@ -1,8 +1,6 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 
@@ -189,7 +187,6 @@
         color: white;
         text-decoration: none;
     }
-    
 </style>
 
 <body>
@@ -197,7 +194,7 @@
         <form class="form-signin">
             <h2 class="form-signin-heading">HIMITSU</h2>
             <div class="input-wrapper">
-                <img id="avatarSetting" width="140" height="160" style="border-radius:15%" src="./images/avatar-default.png">
+                <img id="avatarSetting" width="140" height="160" style="border-radius:15%" src="views/images/avatar-default.png">
                 <div class="input-wrapper">
                     <label class="btn-image">
                         Change Avatar
@@ -238,32 +235,41 @@
                     <option value="u">Not specified</option>
                 </select>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="input-group">
+                        <input type="text"  placeholder="your birthdate" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats"/>
+                        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+                    </p>
+                </div>
 
-            <div class="input-wrapper">
-                <a href="signup.html" class="btn-signup" ng-click="signupSubmit()">SIGN UP</a>
-            </div>
+                <div class="input-wrapper">
+                    <a href="signup.html" class="btn-signup" ng-click="signupSubmit()">SIGN UP</a>
+                </div>
 
         </form>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#personalImage").change(function (e) {
-                var file = e.originalEvent.srcElement.files[0];
-                var img = document.createElement("img");
-                var reader = new FileReader();
-                //                reader.onloadend = function () {
-                //                    img.src = reader.result;
-                //                }
-                reader.onload = function (e) {
-                    $("#avatarSetting").show().attr('src', e.target.result);
-                }
-                reader.readAsDataURL(file);
-                $("#personalImage").after(img);
-            });
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#personalImage").change(function (e) {
+                    var file = e.originalEvent.srcElement.files[0];
+                    var img = document.createElement("img");
+                    var reader = new FileReader();
+                    //                reader.onloadend = function () {
+                    //                    img.src = reader.result;
+                    //                }
+                    reader.onload = function (e) {
+                        $("#avatarSetting").show().attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(file);
+                    $("#personalImage").after(img);
+                });
 
 
 
-        })
-    </script>
+            })
+        </script>
 </body>

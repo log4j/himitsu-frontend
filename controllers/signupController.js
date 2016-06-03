@@ -5,17 +5,20 @@
         'signupController',function($state, $scope, signupService){            
             
             $scope.signupData = {
+                image:'',
                 email:'',
                 password1:'',
                 password2:'',
                 firstname:'',
                 lastname:'',
-                name:''
+                name:'',
+                gender:''
             };
             
             $scope.signupSubmit = function(){
                 signupService.postSignup($scope.signupData)
                     .then(function(res){
+                    console.lo
                         if(res.result){
                             //alert('OK');
 

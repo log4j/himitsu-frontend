@@ -33,7 +33,7 @@
                 
             };
                 $scope.signup = function () {
-                    $state.go('signup');
+                    $state.go('createUser');
                 };
             
             

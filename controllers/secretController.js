@@ -1,63 +1,96 @@
-(function(){
-    
+(function () {
+
     angular.module('himitsuApp')
-    .controller(
-        'secretController',function($state, $scope,secretService, userService, $localStorage){
-            
-            $scope.secretData = [];
+        .controller(
+            'secretController',
+            function ($state, $scope, secretService, userService, $localStorage) {
 
-            $scope.secretOne = {
-                content:'',
-                isPublic: true,
-                owner:$localStorage.user._id
+                $scope.mySecret = false;
+                $scope.secretData = [];
 
-            };
+                $scope.secretOne = {
+                    content: '',
+                    isPublic: '',
+                    //  isAnonymous:'',
+                    owner: $localStorage.user._id,
+                    images:''
+                };
 
-            $scope.getSecretList= function () {
-                
-                secretService.getSecret($scope.secretData)
-                    .then(function (res) {
-                        if(res){
-                            $scope.secretData = res;
-                        }else{
-                            alert(res.err);
-                        }
-                    });
+                $scope.forwardSecret = {
+                    content: '',
+                    owner: $localStorage.user._id,
+                    forwards: '',
+                 //   referId: ''
+                };
 
-            };
+                $scope.getSecretList = function () {
 
+                    secretService.getSecret($scope.secretData)
+                        .then(function (res) {
+                            if (res) {
+                                $scope.secretData = res;
+                            } else {
+                                alert(res.err);
+                            }
+                        });
 
-            $scope.getSecretList();
-
-            $scope.userId = userService.getUserId();
-
-            $scope.user = $localStorage.user;
-
-            $scope.createSecret = function () {
-
-                secretService.postSecret($scope.secretOne)
-                    .then(function (res) {
-
-                        if(res){
-                            alert('OK');
-                            $scope.secretOne.content = '';
-                            $scope.getSecretList();
-
-                        }else {
-
-                            alert(res.err);
-                        }
-                });
-            };
+                };
 
 
-            $scope.logout = function(){
-                $localStorage.$reset();
-                $state.go('login');
-            };
+                $scope.getSecretList();
 
+                $scope.secretLikesNumber = function () {
+                    return $scope.secretData;
+                };
 
-            
-    });
-        
+                $scope.userId = userService.getUserId();
+
+                $scope.user = $localStorage.user;
+
+                $scope.createSecret = function () {
+
+                    secretService.postSecret($scope.secretOne)
+                        .then(function (res) {
+
+                            if (res) {
+                                alert('OK');
+                                $scope.secretOne.content = '';
+                                $scope.secretOne.images = '';
+                                console.log(images);
+                                $scope.getSecretList();
+
+                            } else {
+
+                                alert(res.err);
+                            }
+                        });
+                };
+
+                $scope.createForward = function () {
+                    secretService.postSecret($scope.secretOne)
+                        .then(function (res) {
+                            if (res) {
+                                alert('Forward success');
+                                $scope.forwardSecret.content = '';
+                                $scope.forwardSecret.forwards = '';
+                             //   $scope.referId = '';
+                                $scope.getSecretList();
+                                
+                                }
+                             else {
+                                alert(res.error);
+                            };
+                        });
+                };
+
+                $scope.logout = function () {
+                    $localStorage.$reset();
+                    $state.go('login');
+                };
+                $scope.contact = function() {
+                    $state.go('contact');
+                };
+
+            });
+
 })();
