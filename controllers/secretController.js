@@ -5,6 +5,12 @@
             'secretController',
             function ($state, $scope, secretService, userService, $localStorage) {
 
+                // $scope.convertToSpan = function(stringDate){
+                //     var dateOut = new Date(stringDate);
+                //     dateOut.setDate(dateOut.getDate()+1);
+                //     return dateOut;
+                // }
+
                 $scope.mySecret = false;
                 $scope.secretData = [];
 
@@ -29,6 +35,7 @@
                         .then(function (res) {
                             if (res) {
                                 $scope.secretData = res;
+                                console.log(res + "information test");
                             } else {
                                 alert(res.err);
                             }
