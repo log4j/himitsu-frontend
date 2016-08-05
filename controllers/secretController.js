@@ -16,7 +16,7 @@
 
                 $scope.secretOne = {
                     content: '',
-                    isPublic: '',
+                    isPublic: true,
                     //  isAnonymous:'',
                     owner: $localStorage.user._id,
                     images:''
@@ -58,16 +58,16 @@
 
                     secretService.postSecret($scope.secretOne)
                         .then(function (res) {
-
-                            if (res) {
-                                alert('OK');
+                            console.log(res);
+                            if (res && res.result != false) {
+                                alert('secret send successfully!');
                                 $scope.secretOne.content = '';
                                 $scope.secretOne.images = '';
-                                console.log(images);
+                                
+                                // console.log(images);
+
                                 $scope.getSecretList();
-
                             } else {
-
                                 alert(res.err);
                             }
                         });
