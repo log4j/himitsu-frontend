@@ -22,9 +22,6 @@
                         console.log(res);
                         if(res && res.result != false){
                             // alert('OK SignUp');
-                            $scope.signupData.email = '';
-                            $scope.signupData.password1 = '';
-                            $scope.signupData.password2 = '';
                             
                             console.log(res);
 
