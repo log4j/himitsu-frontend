@@ -6,9 +6,9 @@
             
             $scope.signupData = {
                 image:'',
-                email:'yangmang@gwu.edu',
-                password1:'123',
-                password2:'123',
+                email:'',
+                password1:'',
+                password2:'',
                 firstname:'',
                 lastname:'',
                 name:'',
@@ -37,9 +37,9 @@
 
             };
             
-            $scope.size = null;
+            // $scope.size = null;
             
-            $scope.users = []
+            // $scope.users = []
 
     });
         
