@@ -16,11 +16,12 @@
             };
             
             $scope.signupSubmit = function(){
+
                 signupService.postSignup($scope.signupData)
                     .then(function(res){
-                    console.lo
-                        if(res.result){
-                            alert('OK');
+                        console.log(res);
+                        if(res && res.result != false){
+                            // alert('OK SignUp');
 
                             $state.go('login');
                         }else{
