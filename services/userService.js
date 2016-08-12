@@ -4,7 +4,7 @@
         .module('himitsuApp')
         .factory('userService', function ($http, $localStorage) {
 
-            var host = 'http://topsecret.today:4000';
+            var host = 'http://topsecret.today';
             var userService = this;
 
             userService.userId = null;
