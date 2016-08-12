@@ -12,7 +12,7 @@
                     templateUrl: '/views/login.html'
 
                 })
-                .state('createUser', {
+                .state('user', {
                     url: '/user',
                     controller: 'signupController',
                     templateUrl: '/views/signup.html'
