@@ -16,14 +16,12 @@
                 .then(function(res){
                     if(res.result){
                         //alert('OK');
-
                         userService.loadUser()
                             .then(function(userRes){
                                 if(userRes.result){
                                     $state.go('secret');
                                 }
                             });
-                        
 
                     }else{
                         alert(res.err.message);

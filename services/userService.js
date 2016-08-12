@@ -9,8 +9,6 @@
 
             userService.userId = null;
 
-
-
             userService.postLogin = function (data) {
                 console.log(data);
                 
@@ -34,7 +32,7 @@
             };
 
             userService.loadUser = function(){
-                return $http.get('host/user/'+$localStorage.userId)
+                return $http.get(host+'/user/'+$localStorage.userId)
                     .then(function(res){
                         if(res.data){
                             if(res.data.result){
