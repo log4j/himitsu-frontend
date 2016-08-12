@@ -20,9 +20,6 @@
                     
                     if(res.data){
 
-
-
-
                         userService.userId = res.data.id;
 
                         $localStorage.userId = res.data.id;
