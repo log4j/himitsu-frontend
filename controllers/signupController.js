@@ -20,7 +20,7 @@
                     .then(function(res){
                     console.lo
                         if(res.result){
-                            //alert('OK');
+                            alert('OK');
 
                             $state.go('login');
                         }else{
