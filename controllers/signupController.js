@@ -6,22 +6,27 @@
             
             $scope.signupData = {
                 image:'',
-                email:'',
-                password1:'',
-                password2:'',
+                email:'yangmang@gwu.edu',
+                password1:'123',
+                password2:'123',
                 firstname:'',
                 lastname:'',
                 name:'',
                 gender:''
             };
             
-            $scope.signupSubmit = function(){
+            $scope.signupSubmit= function(){
 
                 signupService.postSignup($scope.signupData)
                     .then(function(res){
                         console.log(res);
                         if(res && res.result != false){
                             // alert('OK SignUp');
+                            $scope.signupData.email = '';
+                            $scope.signupData.password1 = '';
+                            $scope.signupData.password2 = '';
+                            
+                            console.log(res);
 
                             $state.go('login');
                         }else{
