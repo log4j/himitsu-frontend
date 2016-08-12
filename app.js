@@ -1,8 +1,13 @@
 (function () {
-        var host = 'http://topsecret.today:4000';
+    
+    // var host = 'http://topsecret.today:4000';
+
     angular.module('himitsuApp', [
         'ui.bootstrap', 'ui.router', 'ngStorage'
     ])
+        .constant('$HOST',{
+            'url':'http://topsecret.today:4000'
+        })
         .config(function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('/login');
             $stateProvider

@@ -2,14 +2,14 @@
 
     angular
         .module('himitsuApp')
-        .factory('secretService', function ($http) {
+        .factory('secretService', function ($HOST,$http) {
 
 
             var secretService = this;
 
             this.getSecret = function (data) {
 
-                return $http.get(host+'/secret', data)
+                return $http.get($HOST+'/secret', data)
                     .then(function (res) {
                         console.log(res.data.data);
 
@@ -28,7 +28,7 @@
 
             this.postSecret = function (data) {
 
-                return $http.post(host+'/secret', data)
+                return $http.post($HOST+'/secret', data)
                     .then(function (res) {
 
                         console.log(res.data);
