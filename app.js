@@ -1,5 +1,5 @@
 (function () {
-    //    var host = 'http://localhost:4000';
+        var host = 'http://topsecret.today:4000';
     angular.module('himitsuApp', [
         'ui.bootstrap', 'ui.router', 'ngStorage'
     ])

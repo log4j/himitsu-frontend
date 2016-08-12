@@ -7,7 +7,7 @@
             
             this.postSignup = function (data) {
 
-                return $http.post('http://localhost:4000/user', data)
+                return $http.post(host+'/user', data)
                     .then(function(res){
 
                         if(res.data){

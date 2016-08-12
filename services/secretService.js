@@ -9,7 +9,7 @@
 
             this.getSecret = function (data) {
 
-                return $http.get('http://localhost:4000/secret', data)
+                return $http.get(host+'/secret', data)
                     .then(function (res) {
                         console.log(res.data.data);
 
@@ -28,7 +28,7 @@
 
             this.postSecret = function (data) {
 
-                return $http.post('http://localhost:4000/secret', data)
+                return $http.post(host+'/secret', data)
                     .then(function (res) {
 
                         console.log(res.data);

@@ -14,7 +14,7 @@
             userService.postLogin = function (data) {
                 console.log(data);
                 
-                return $http.post('http://localhost:4000/login', data)
+                return $http.post(host+'/login', data)
                 .then(function(res){
                     console.log(res.data.id);
                     
@@ -37,7 +37,7 @@
             };
 
             userService.loadUser = function(){
-                return $http.get('http://localhost:4000/user/'+$localStorage.userId)
+                return $http.get('host/user/'+$localStorage.userId)
                     .then(function(res){
                         if(res.data){
                             if(res.data.result){
@@ -63,7 +63,7 @@
             userService.searchUserByFirstName = function (keyword) {
                 if (!keyword)
                     keyword = "";
-                return $http.get('http://localhost:4000/user?firstName=' + keyword)
+                return $http.get(host+'/user?firstName=' + keyword)
                     .then(function (res) {
 
                         if (res.data)
